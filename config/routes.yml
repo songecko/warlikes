@@ -1,0 +1,40 @@
+homepage:
+    path:     /
+    defaults: { _controller: 'Urb\Controller\MainController::indexAction' }
+
+like:
+    path:     /like
+    defaults: { _controller: 'Urb\Controller\MainController::likeAction' }
+  
+register:
+    path:     /registro
+    defaults: { _controller: 'Urb\Controller\MainController::registerAction' }
+
+facebook_login:
+    path:     /facebook-login
+    defaults: { _controller: 'Urb\Controller\MainController::facebookLoginAction' }
+
+startup:
+    path:     /elegir-foto
+    defaults: { _controller: 'Urb\Controller\MainController::startupAction' }
+
+add_look:
+    path:     /add-look
+    defaults: { _controller: 'Urb\Controller\MainController::addLookAction' }
+    methods:  [POST]
+
+look_show:
+    path:     /look/{id}
+    defaults: { _controller: 'Urb\Controller\MainController::lookShowAction' }
+        
+thanks:
+    path:     /thanks
+    defaults: { _controller: 'Urb\Controller\MainController::thanksAction' }
+
+register_list:
+    path:     /register-list
+    defaults: { _controller: 'Urb\Controller\MainController::registerListAction' }
+
+delete_register:
+    path:     /delete-register/{id}
+    defaults: { _controller: 'Urb\Controller\MainController::deleteRegisterAction' }

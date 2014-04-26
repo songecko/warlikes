@@ -1,0 +1,3 @@
+[submodule "src/Gecky"]
+	path = src/Gecky
+	url = https://github.com/songecko/gecky-framework.git

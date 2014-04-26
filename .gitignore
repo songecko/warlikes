@@ -1,0 +1,10 @@
+# Composer 
+vendor/*
+
+#Eclipse
+.settings
+.buildpath
+.project
+
+uploads/*
+.DS_Store

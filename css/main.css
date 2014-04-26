@@ -1,0 +1,83 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body{font-family: 'Roboto Condensed', Arial, sans-serif;}
+
+#contenedor{ position: relative; width: 810px; height: 850px; margin: 0 auto;}
+#contenedor.no-like, #contenedor.index {
+	background: url(../images/fondo.jpg) center top;
+}
+#contenedor.look {
+	background: url(../images/fondo3.jpg) center top;
+}
+#contenedor.register {
+	background: url(../images/fondo2.jpg) center top;
+}
+.logo_jumbo {position: absolute; bottom: 10px; right: 10px;}
+.megusta{ position: absolute; top: 40px; right: 40px; width: 300px; height: 55px; padding: 1em; font-weight: 400; font-size: 1.5em; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); text-align: center; border: 4px solid #e00109; text-indent: 0px; border-radius: 10px; pointer-events: none; box-shadow: 2px 2px 2px rgba(0,0,0,0.1); transition: all 0.3s ease-in-out;}
+.megusta p {display: block; float: left; width: 100%; height: auto; text-align: center; margin: 0; padding: 0;}
+.megusta img{width: 30%}
+.arrow-up { float: right; margin-top: -47px; width: 0; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent; border-bottom: 20px solid #fff;}
+.info{display: block; width: 320px; height: auto; margin: 25px;}
+.info p{display: block; width: 320px; height: auto; margin: 20px 0; color: #fff; font-size: 1.25em; text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);}
+.simple{font-size: 4.25em; font-weight: 100; color: #fff;  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);}
+.tendencia{font-size: 3em; font-weight: 700; color: #fff; line-height: 20px; text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);}
+
+.boton1{ display: block; width: 200px; height: 25px; padding: 0.75em; border-radius: 10px; cursor: pointer; box-shadow: 2px 2px 2px rgba(0,0,0,0.1); transition: all 0.3s ease-in-out; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); text-align: center; text-decoration: none; background: #e00109; font-size: 1.6em; color: #fff; line-height: 25px}
+button.boton1{ border: 0; padding: 0; height: 63px; }
+.boton1 span{ display: inline-block; vertical-align: top; }
+.boton1 i{ display: inline-block; vertical-align: top; font-size: 1.25em; margin: 10px 0 0 15px; line-height: 10px; }
+.hover{background: #880206; }
+
+h2{display: block; position: absolute; top: 70px; right: 20px; width: 30%; font-size: 2em; font-weight: 400; margin: 0; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); z-index: 900; height: auto; width: 90%; color: #fff; text-align: right}
+
+.texto_registro{display: block; float: right; width: 550px; height: auto; margin: 150px 0 0 15px; color: #666; font-size: 1em;}
+.registro{display: bock; width: 500px; float: right; text-align: right; list-style: none; color: #666; margin-right: 20px}
+.registro li{ padding: 10px; margin: 15px 10px; padding: 0;}
+.registro li input{ width: 260px; padding: 10px 4px; border: none; -webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,0.25); box-shadow: 0 0 5px 0 rgba(0,0,0,0.75); border-radius: 5px}
+.registro .fecha {width: 74px; margin: 3px 0 0 8px; text-align: center;}
+.registro li label{margin-right: 14px; }
+
+.boton1{ display: block; width: 200px; height: 25px; padding: 0.75em; border-radius: 10px; cursor: pointer; box-shadow: 2px 2px 2px rgba(0,0,0,0.1); transition: all 0.3s ease-in-out; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); text-align: center; text-decoration: none; background: #e00109; font-size: 1.6em; color: #fff; line-height: 25px}
+.boton1 span{ display: inline-block; vertical-align: top; }
+.boton1 i{ display: inline-block; vertical-align: top; font-size: 1.25em; margin: 10px 0 0 15px; line-height: 10px; }
+.hover{background: #880206; }
+
+.mecanica {display: block; float: right; margin: 200px 20px 0 0; width: 450px; }
+.mecanica li {list-style: none; height: 80px; color: #666;}
+.mecanica li p{font-size: 1.25em;}
+.mecanica li:nth-child(2) p {display: block; margin: 0.5em;}
+.mecanica li:nth-child(3) p {display: block; margin: 0.5em;}
+.mecanica li .paso { display: block; float: left; margin: 8px; width: 50px; height: 50px; background: #e00109; border-radius: 25px; border: 3px solid #fff; text-align: center; padding-top: 5px; font-size: 1.5em; color: #fff; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 20px}
+
+
+.resultado {display: block; float: right; margin: 150px 20px 0 0; width: 450px; }
+.resultado li {display: block; list-style: none; color: #666; text-align: center}
+h3{font-size: 2em; margin-top:20px;}
+.resultado li p{ display: block; width: 80%; margin: 20px auto;}
+.color { display: block; margin: 0 auto; width: 120px; height: 120px; border-radius: 75px; border: 5px solid #fff; text-align: center; padding-top: 5px; font-size: 1.5em; color: #fff; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,0.25); box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);}
+
+.boton2{ float:left; display: block; width: 160px; height: 25px; padding: 0.75em; border-radius: 10px; cursor: pointer; box-shadow: 2px 2px 2px rgba(0,0,0,0.1); transition: all 0.3s ease-in-out; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); text-align: center; text-decoration: none; background: #e00109; font-size: 1.2em; color: #fff; line-height: 25px; margin: 20px 5px}
+.boton2 span{ display: inline-block; vertical-align: top; }
+.boton2 i{ display: inline-block; vertical-align: top; font-size: 1em; margin: 10px 0 0 15px; line-height: 10px; }
+
+.tip{color: #e00109; font-weight: 700}
+
+.img_modelo{position: absolute; top: 160px; left: 30px}
+
+#CSPhotoSelector .CSPhotoSelector_dialog .CSPhotoSelector_header {
+	background: #e00109;
+}
+
+#CSPhotoSelector .CSPhotoSelector_dialog .CSPhotoSelector_form {
+	border: 1px solid #e00109;
+}
+
+#CSPhotoSelector a, #CSPhotoSelector a:active, #CSPhotoSelector a:hover, #CSPhotoSelector a:visited {
+	color: #666;
+}
+
+#CSPhotoSelector .CSPhotoSelector_dialog .CSPhotoSelector_footer #CSPhotoSelector_buttonOK {
+	background: #e00109;
+	border: 1px solid #e00109;
+}
