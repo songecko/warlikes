@@ -1,6 +1,6 @@
 <?php
 
-namespace Urb\Controller;
+namespace Warlikes\Controller;
 
 require_once __DIR__.'/../ColorsOfImage/colorsofimage.class.php';
 

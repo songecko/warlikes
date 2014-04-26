@@ -16,7 +16,7 @@
 	"autoload" : {
 		"psr-0" : {
 			"Gecky" : "src/",
-			"Urb" : "src/"
+			"Warlikes" : "src/"
 		}
 	}
 }

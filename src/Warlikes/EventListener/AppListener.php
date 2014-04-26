@@ -1,6 +1,6 @@
 <?php
 
-namespace Urb\EventListener;
+namespace Warlikes\EventListener;
 
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;

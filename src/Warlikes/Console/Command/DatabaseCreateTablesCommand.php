@@ -1,6 +1,6 @@
 <?php
 
-namespace Urb\Console\Command;
+namespace Warlikes\Console\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
