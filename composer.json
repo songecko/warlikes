@@ -3,6 +3,7 @@
 		"symfony/class-loader" : "2.3.*",
 		"symfony/config" : "2.3.*",
 		"symfony/yaml" : "2.3.*",
+		"symfony/filesystem" : "2.3.*",
 		"symfony/http-foundation" : "2.3.*",
 		"symfony/routing" : "2.3.*",
 		"symfony/http-kernel" : "2.3.*",
@@ -10,6 +11,7 @@
 		"symfony/templating" : "2.3.*",
 		"symfony/console" : "2.3.*",
 		"doctrine/dbal" : "2.4.*",
+		"imagine/imagine" : "~0.5.0",
 		"facebook/php-sdk" : "*",
 		"mobiledetect/mobiledetectlib" : "2.7.x"
 	},

@@ -14,7 +14,7 @@ services:
         class:     Symfony\Component\HttpKernel\EventListener\ExceptionListener
         arguments: [ 'Gecky\\Controller\\ErrorController::exceptionAction' ]
     listener.app:
-        class:     Urb\EventListener\AppListener
+        class:     Warlikes\EventListener\AppListener
         arguments: [ '@service_container' ]
     dispatcher:
         class:     Symfony\Component\EventDispatcher\EventDispatcher

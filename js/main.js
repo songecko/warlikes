@@ -1,4 +1,14 @@
-var sending = false;
+function showAlertModal(title, message)
+{
+	$('#alertModal .title').html(title);
+	$('#alertModal').show();
+}
+
+function hideModal()
+{
+	$('.modal').fadeOut('fast');
+}
+
 $(document).ready(function()
 {
 	/**-- Facebook --**/
@@ -10,97 +20,10 @@ $(document).ready(function()
 	        status: true,
 	        xfbml:  true
 	    });
-	});
-	
-	
-	/**-- Facebook photo selector functions --**/
-	var selector, logActivity, callbackAlbumSelected, callbackPhotoUnselected, callbackSubmit;
-	var buttonOK = $('#CSPhotoSelector_buttonOK');
-	var o = this;
-	var addLookUrl;
-	
-	fbphotoSelect = function(id) 
-	{
-		// if no user/friend id is sent, default to current user
-		if (!id) id = 'me';
 		
-		callbackAlbumSelected = function(albumId) 
-		{
-			var album, name;
-			album = CSPhotoSelector.getAlbumById(albumId);
-			// show album photos
-			selector.showPhotoSelector(null, album.id);
-		};
-
-		callbackAlbumUnselected = function(albumId) 
-		{
-			var album, name;
-			album = CSPhotoSelector.getAlbumById(albumId);
-		};
-
-		callbackPhotoSelected = function(photoId) 
-		{
-			var photo;
-			photo = CSPhotoSelector.getPhotoById(photoId);
-			buttonOK.show();
-			console.log('Selected ID: ' + photo.id);
-		};
-
-		callbackPhotoUnselected = function(photoId) 
-		{
-			var photo;
-			album = CSPhotoSelector.getPhotoById(photoId);
-			buttonOK.hide();
-		};
-
-		callbackSubmit = function(photoId) {
-			var photo;
-			photo = CSPhotoSelector.getPhotoById(photoId);
-			console.log('Submitted Photo ID: ' + photo.id + 'Photo URL: ' + photo.source);
-			
-			$.ajax({
-                type: "POST",
-                url: addLookUrl,
-                data: { photoId: photo.id, photoSource: photo.source },
-                success: function(data, textStatus, jqXHR)
-                {
-                	var lookUrl = data.lookUrl;
-                	self.location = lookUrl;
-                }
-			});
-		};
-
-
-		// Initialise the Photo Selector with options that will apply to all instances
-		CSPhotoSelector.init({debug: true});
-
-		// Create Photo Selector instances
-		selector = CSPhotoSelector.newInstance({
-			callbackAlbumSelected	: callbackAlbumSelected,
-			callbackAlbumUnselected	: callbackAlbumUnselected,
-			callbackPhotoSelected	: callbackPhotoSelected,
-			callbackPhotoUnselected	: callbackPhotoUnselected,
-			callbackSubmit			: callbackSubmit,
-			maxSelection			: 1,
-			albumsPerPage			: 6,
-			photosPerPage			: 200,
-			autoDeselection			: true
-		});
-
-		// reset and show album selector
-		selector.reset();
-		selector.showAlbumSelector(id);
-	};
-	
-	$(".photoSelect").click(function (e) 
-	{
-		e.preventDefault();
-		id = null;
-		if ( $(this).attr('data-id') ) id = $(this).attr('data-id');
-		addLookUrl = $(this).data('addLookUrl');
-		fbphotoSelect(id);
+		FB.Canvas.setSize({ width: 810, height: 850 });
 	});
-	
+		
 	$(".fbShare").click(function (e) 
 	{
 		e.preventDefault();
@@ -115,7 +38,7 @@ $(document).ready(function()
 	
 	
 	/**-- Register Form --**/
-	$("form#registerForm").validate(
+	$("form#register-form").validate(
 	{
 		onkeyup: false,
 		onclick: false,
@@ -139,13 +62,13 @@ $(document).ready(function()
 		{
 			if(errorList.length > 0)
 			{
-				var errorText = 'Debes resolver los siguienes errores para poder continuar:\n\n';
+				var errorText = 'Debes resolver los siguienes errores para poder continuar:<br><br>';
 				for (var i=0; i<errorList.length; i++) 
 				{
 					//errorText += "- "+errorList[i].message+"<br>";
-					errorText += "- "+errorList[i].message+"\n";
+					errorText += "- "+errorList[i].message+"<br>";
 				}
-				alert(errorText);
+				showAlertModal("¡Debes completar todos los datos!");
 				//$('#errorsModal .modal-body').html(errorText);
 				//$('#errorsModal').modal('show');
 			}
@@ -158,12 +81,9 @@ $(document).ready(function()
 	
 	
 	/**-- Misc --**/
-	
-	$('.boton1').mouseenter(function() 
+	$('.modal-close').click(function(e)
 	{
-		$(this).addClass('hover');
-	}).mouseleave(function() 
-	{
-		$(this).removeClass('hover');
+		e.preventDefault();
+		hideModal();
 	});
 });

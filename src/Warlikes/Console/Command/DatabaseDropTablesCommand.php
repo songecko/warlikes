@@ -25,7 +25,7 @@ class DatabaseDropTablesCommand extends Command
     	
     	$schema = new \Doctrine\DBAL\Schema\Schema();
     	
-    	$userLookTable = $schema->createTable("user_look");
+    	//$userLookTable = $schema->createTable("user_look");
     	$userTable = $schema->createTable("user");
     	$queries = $schema->toDropSql($platform); // get queries to safely delete this schema.
     	

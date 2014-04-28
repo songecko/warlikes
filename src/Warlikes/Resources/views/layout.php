@@ -1,64 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="es-ES">
 	<head>
-		<meta charset="UTF-8">
-		<title>Jumbo URB</title>
-		
-		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="<?php echo $view['assets']->getUrl('css/normalize.css') ?>">
-		<link rel="stylesheet" href="<?php echo $view['assets']->getUrl('css/font-awesome.min.css') ?>">
-		<link rel="stylesheet" type="text/css" href="<?php echo $view['assets']->getUrl('css/csphotoselector.css') ?>">
-		<link rel="stylesheet" type="text/css" href="<?php echo $view['assets']->getUrl('css/main.css') ?>">	
+		<meta charset="UTF-8" />
+		<title>Guerra de Likes</title>
+		<!--[if lt IE 9]>
+		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700italic,700,400italic" rel="stylesheet" type="text/css">
+		<link href="<?php echo $view['assets']->getUrl('css/main.css') ?>"  rel="stylesheet" type="text/css" media="screen" />
 	</head>
 	<body>
-    	<?php echo $content ?>
-    	
-    	
-	<!-- Markup for Carson Shold's Photo Selector -->
-	<div id="CSPhotoSelector">
-		<div class="CSPhotoSelector_dialog">
-			<a href="#" id="CSPhotoSelector_buttonClose">x</a>
-			<div class="CSPhotoSelector_form">
-				<div class="CSPhotoSelector_header">
-					<p>Elige desde tus fotos</p>
-				</div>
-
-				<div class="CSPhotoSelector_content CSAlbumSelector_wrapper">
-					<p>Elegí uno de tus álbumes para seleccionar tu foto.</p>
-					<div class="CSPhotoSelector_searchContainer CSPhotoSelector_clearfix">
-						<div class="CSPhotoSelector_selectedCountContainer">Seleccionar un album</div>
+		<div id="page">
+			<nav id="nav">
+				<ul>
+					<li class="nav-home<?php echo $view['router']->onRoute('homepage')?' current':'' ?>"><a href="<?php echo $view['router']->generate('homepage') ?>"><em>Inicio</em> <span></span></a></li>
+					<li class="nav-gallery<?php echo $view['router']->onRoute('gallery')?' current':'' ?>"><a href="<?php echo $view['router']->generate('gallery') ?>"><em>Galería</em> <span></span></a></li>
+					<li class="nav-ranking<?php echo $view['router']->onRoute('ranking')?' current':'' ?>"><a href="<?php echo $view['router']->generate('ranking') ?>"><em>Ranking</em> <span></span></a></li>
+					<li class="nav-share"><a href="#"><em>Compartir</em> <span></span></a></li>
+				</ul>
+			</nav>
+			
+    		<?php echo $content ?>
+    		    		
+			<div id="alertModal" class="modal hide">
+				<div class="modal-content register-msj">
+					<a href="#" class="modal-close">x</a>
+					<div class="vertical-center">
+						<p><strong class="title">¡Debes completar todos los datos!</strong></p>
 					</div>
-					<div class="CSPhotoSelector_photosContainer CSAlbum_container"></div>
-				</div>
-
-				<div class="CSPhotoSelector_content CSPhotoSelector_wrapper">
-					<p>Seleccionar una foto/p>
-					<div class="CSPhotoSelector_searchContainer CSPhotoSelector_clearfix">
-						<div class="CSPhotoSelector_selectedCountContainer"><span class="CSPhotoSelector_selectedPhotoCount">0</span> / <span class="CSPhotoSelector_selectedPhotoCountMax">0</span> fotos seleccionadas</div>
-						<a href="#" id="CSPhotoSelector_backToAlbums">Volver a los albumes</a>
-					</div>
-					<div class="CSPhotoSelector_photosContainer CSPhoto_container"></div>
-				</div>
-
-				<div id="CSPhotoSelector_loader"></div>
-
-
-				<div class="CSPhotoSelector_footer CSPhotoSelector_clearfix">
-					<a href="#" id="CSPhotoSelector_pagePrev" class="CSPhotoSelector_disabled">Anterior</a>
-					<a href="#" id="CSPhotoSelector_pageNext">Siguiente</a>
-					<div class="CSPhotoSelector_pageNumberContainer">
-						Página <span id="CSPhotoSelector_pageNumber">1</span> / <span id="CSPhotoSelector_pageNumberTotal">1</span>
-					</div>
-					<a href="#" id="CSPhotoSelector_buttonOK">OK</a>
-					<a href="#" id="CSPhotoSelector_buttonCancel">Cancelar</a>
 				</div>
 			</div>
+
+			<footer id="footer" class="clearfix">
+				<a href="<?php echo $view['router']->generate('terms') ?>" class="button">Bases y condiciones</a>
+				<p>Si sos uno de los ganadores y tenés tarjeta CENCOSUD, te llevás una giftcard extra de <strong>$3.000!!!</strong></p>
+				<div class="logos clearfix">
+					<a href="#" id="cencosud">CENCOSUD</a>
+					<span id="easy">Easy</span>
+				</div>
+			</footer>
 		</div>
-	</div>
+		<!--/#page-->
 	
-    	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js?ver=1.11.0"></script>
 		<script src="<?php echo $view['assets']->getUrl('js/vendor/jquery.validate.min.js') ?>"></script>
-		<script src="<?php echo $view['assets']->getUrl('js/vendor/csphotoselector.js') ?>"></script>
 		<script src="<?php echo $view['assets']->getUrl('js/main.js') ?>"></script>
 	</body>
 </html>

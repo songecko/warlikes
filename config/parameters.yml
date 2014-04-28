@@ -2,9 +2,9 @@ parameters:
     database_host: localhost
     database_username: root
     database_password: 123456
-    database_name: urb
-    facebook_app_id: '738588072842792'
-    facebook_app_secret: '2b81995191260128c93214818cbf8050'
-    facebook_app_host: 'http://dev.urb.com/'
+    database_name: warlikes
+    facebook_app_id: '551213981665418'
+    facebook_app_secret: 'd29941bb10e204f59506f39db86f2a07'
+    facebook_app_host: 'http://dev.warlikes.com/'
     facebook_tab_url: 'http://www.google.com.ar'
-    facebook_login_scope: 'basic_info, email, user_birthday, publish_actions, user_photos'
+    facebook_login_scope: 'basic_info, email, user_birthday, publish_actions'

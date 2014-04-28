@@ -6,5 +6,6 @@ vendor/*
 .buildpath
 .project
 
+cache/*
 uploads/*
 .DS_Store

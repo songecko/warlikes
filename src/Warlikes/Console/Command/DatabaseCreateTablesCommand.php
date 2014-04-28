@@ -30,23 +30,27 @@ class DatabaseCreateTablesCommand extends Command
     	$userTable->addColumn("id", "integer", array("unsigned" => true, "autoincrement" => true));
     	$userTable->addColumn("fbid", "string", array("length" => 255));
     	$userTable->addColumn("name", "string", array("length" => 255));
-    	$userTable->addColumn("last_name", "string", array("length" => 255));
+    	$userTable->addColumn("last_name", "string", array("length" => 255, "notnull" => false));
     	$userTable->addColumn("dni", "string", array("length" => 255));
     	$userTable->addColumn("email", "string", array("length" => 255));
     	$userTable->addColumn("birth_date", "date");
-    	$userTable->addColumn("newsletter", "boolean");
+    	$userTable->addColumn("photo", "string", array("length" => 255));
+    	$userTable->addColumn("votes", "integer", array("default" => 0));
+    	$userTable->addColumn("has_cencosud", "boolean");
+    	$userTable->addColumn("newsletter_easy", "boolean");
+    	$userTable->addColumn("newsletter_cencosud", "boolean");
     	$userTable->setPrimaryKey(array("id"));
     	$userTable->addUniqueIndex(array("email"));
     	
     	//user_look table
-    	$userLookTable = $schema->createTable("user_look");
+    	/*$userLookTable = $schema->createTable("user_look");
     	$userLookTable->addColumn("id", "integer", array("unsigned" => true, "autoincrement" => true));
     	$userLookTable->addColumn("user_id", "integer", array("unsigned" => true));
     	$userLookTable->addColumn("image", "string", array("length" => 255));
     	$userLookTable->addColumn("color", "string", array("length" => 255, 'notnull' => false));
     	$userLookTable->setPrimaryKey(array("id"));
     	$userLookTable->addForeignKeyConstraint($userTable, array("user_id"), array("id"), array("onDelete" => "CASCADE"));
-    	
+    	*/
     	$queries = $schema->toSql($platform); // get queries to create this schema.
     	foreach ($queries as $query)
     	{

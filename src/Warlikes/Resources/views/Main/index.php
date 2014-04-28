@@ -1,11 +1,7 @@
-<div id="contenedor" class="index">
-	<img src="<?php echo $view['assets']->getUrl('images/urb.png')?>" width="150" style="padding: 15px" />
-	<div class="info">
-		<span class="simple">LO SIMPLE</span><br>
-		<span class="tendencia">ES TENDENCIA</span>
-		<p>En esta temporada te sugerimos<br>un look para cada ocasión.</p>
-		<p>Encontrá tu look eligiendo alguna de<br>las fotos de tus álbumes de Facebook<br>y participá por una GIFT CARD.</p>
-		<a href="<?php echo $loginUrl ?>" class="boton1" ><span>Ingresar</span> <i class="fa  fa-arrow-circle-right"></i></a>
+<div id="home">
+	<div class="text">
+		<p>La ropa de entrecasa es la mejor que tenemos. Exacto, es la mejor que tenemos, pero para estar en casa. No en Facebook. Solo en casa nos animamos a poner unas pantuflas de oso, una remera extremadamente apretada, o una bata rosa. Esa ropa no se comparte, no se muestra publicamente. A lo sumo la ve algún familiar y algún que otro de esos vecinos que les gusta espiar por la ventana.</p>
+		<p>Por eso easy hoy premia a los que comparten la ropa de entrecasa. Pero en este caso, no a los que tienen más likes, sino a los que tienen MENOS likes.</p>
 	</div>
-	<img class="logo_jumbo" src="<?php echo $view['assets']->getUrl('images/jumbo.png')?>" width="120" style="padding: 15px" />
+	<a href="<?php echo $loginUrl ?>" target="_top"><span>Ingresar</span></a>
 </div>

@@ -1,40 +1,55 @@
 homepage:
     path:     /
-    defaults: { _controller: 'Urb\Controller\MainController::indexAction' }
-
-like:
-    path:     /like
-    defaults: { _controller: 'Urb\Controller\MainController::likeAction' }
-  
-register:
-    path:     /registro
-    defaults: { _controller: 'Urb\Controller\MainController::registerAction' }
+    defaults: { _controller: 'Warlikes\Controller\MainController::indexAction' }
 
 facebook_login:
     path:     /facebook-login
-    defaults: { _controller: 'Urb\Controller\MainController::facebookLoginAction' }
+    defaults: { _controller: 'Warlikes\Controller\MainController::facebookLoginAction' }
+    
+like:
+    path:     /like
+    defaults: { _controller: 'Warlikes\Controller\MainController::likeAction' }
+  
+register:
+    path:     /registro
+    defaults: { _controller: 'Warlikes\Controller\MainController::registerAction' }
 
+imagine_resize:
+    path:     /media/image/{width}/{height}/{src}
+    defaults: { _controller: 'Warlikes\Controller\ImagineController::resizeAction' }
+    
+gallery:
+    path:     /galeria
+    defaults: { _controller: 'Warlikes\Controller\MainController::galleryAction' }
+
+user_photo:
+    path:     /foto/{id}
+    defaults: { _controller: 'Warlikes\Controller\MainController::userPhotoAction' }
+
+user_photo_vote:
+    path:     /foto/{id}/votar
+    defaults: { _controller: 'Warlikes\Controller\MainController::userPhotoVoteAction' }
+        
+ranking:
+    path:     /ranking
+    defaults: { _controller: 'Warlikes\Controller\MainController::rankingAction' }
+    
+terms:
+    path:     /bases-y-condiciones
+    defaults: { _controller: 'Warlikes\Controller\MainController::termsAction' }
+        
 startup:
     path:     /elegir-foto
-    defaults: { _controller: 'Urb\Controller\MainController::startupAction' }
-
-add_look:
-    path:     /add-look
-    defaults: { _controller: 'Urb\Controller\MainController::addLookAction' }
-    methods:  [POST]
-
-look_show:
-    path:     /look/{id}
-    defaults: { _controller: 'Urb\Controller\MainController::lookShowAction' }
+    defaults: { _controller: 'Warlikes\Controller\MainController::startupAction' }
         
 thanks:
     path:     /thanks
-    defaults: { _controller: 'Urb\Controller\MainController::thanksAction' }
+    defaults: { _controller: 'Warlikes\Controller\MainController::thanksAction' }
 
 register_list:
     path:     /register-list
-    defaults: { _controller: 'Urb\Controller\MainController::registerListAction' }
+    defaults: { _controller: 'Warlikes\Controller\MainController::registerListAction' }
 
 delete_register:
     path:     /delete-register/{id}
-    defaults: { _controller: 'Urb\Controller\MainController::deleteRegisterAction' }
+    defaults: { _controller: 'Warlikes\Controller\MainController::deleteRegisterAction' }

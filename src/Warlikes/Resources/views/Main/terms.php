@@ -1,0 +1,12 @@
+<header id="header"></header>
+
+<div class="page" id="bases">
+	<header class="section-header">
+		<h2>Bases y condiciones</h2>
+	</header>
+	<div class="post-entry">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec urna neque, faucibus at lacus non, feugiat pellentesque eros. Aenean quis tempor libero. In hac habitasse platea dictumst. Fusce quis tincidunt nisl, sed dapibus libero. Sed velit metus, tempus ut orci non, suscipit convallis orci. Vivamus cursus metus sollicitudin justo condimentum facilisis. Curabitur malesuada nisl mauris, id eleifend sem dapibus id. Aenean eu eros eget erat pellentesque feugiat. Sed accumsan erat sit amet felis gravida, nec fringilla nulla venenatis. Nulla faucibus sem sed ornare ornare. Quisque imperdiet purus ut neque tempor volutpat. Proin faucibus massa justo, eu cursus eros faucibus et. Mauris metus turpis, venenatis eu tortor eu, interdum accumsan odio.</p>
+		<p>Proin sollicitudin dapibus sem sit amet vestibulum. Sed dignissim feugiat augue, eget tempus enim semper et. Integer et est ut diam lobortis rhoncus eget nec tortor. Pellentesque aliquet faucibus enim, a luctus ligula elementum et. Morbi luctus ante venenatis ipsum convallis, ut faucibus eros dapibus. Morbi est leo, ornare a hendrerit a, rutrum eu mauris. Vivamus commodo eros metus, ut iaculis mauris hendrerit sodales. Vestibulum in sapien bibendum, hendrerit est id, consectetur arcu. Maecenas blandit eget orci vitae tempor. Vestibulum augue arcu, eleifend a pharetra nec, gravida id elit. Praesent imperdiet id elit sit amet pretium. Cras sed dignissim orci. Nunc egestas vitae ipsum viverra adipiscing.</p>
+		<p>Aliquam eu magna sed turpis vestibulum bibendum eget vitae purus. Nam consectetur posuere scelerisque. Sed quis enim magna. Morbi turpis metus, consequat ac convallis vel, aliquet sit amet diam. Nullam at lacus in ipsum aliquam ultricies. Suspendisse mattis ligula in nulla consequat, in sodales ipsum tempor. Duis nec risus sodales, sagittis ipsum sit amet, luctus tortor. Donec tempor vel lectus eget luctus. Mauris viverra nisl id metus venenatis, sed placerat metus ultrices. Sed condimentum ac augue sed iaculis. Nullam mauris felis, scelerisque nec bibendum a, suscipit nec urna. Vestibulum in mi ac sem imperdiet tincidunt vitae pellentesque felis. Ut at nisi quis magna scelerisque lobortis.</p>
+	</div>
+</div>
