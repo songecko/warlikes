@@ -174,8 +174,20 @@ a {
 /* Home */
 
 #home {
+	position: relative;
 	background: #19191b url(../images/home.jpg) no-repeat;
 	padding-top: 580px;
+}
+#home .calltoaction {
+	display: block;
+	width: 219px;
+	height: 93px;
+	background: url(../images/btn-participa.png) no-repeat;
+	text-indent: -9999em;
+	position: absolute;
+	z-index: 1;
+	left: 25px;
+	top: 250px;
 }
 #home .text {
 	padding: 0 25px 25px 25px;
