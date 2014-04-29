@@ -13,7 +13,8 @@
 		"doctrine/dbal" : "2.4.*",
 		"imagine/imagine" : "~0.5.0",
 		"facebook/php-sdk" : "*",
-		"mobiledetect/mobiledetectlib" : "2.7.x"
+		"mobiledetect/mobiledetectlib" : "2.7.x",
+		"pagerfanta/pagerfanta": "1.0.*"
 	},
 	"autoload" : {
 		"psr-0" : {

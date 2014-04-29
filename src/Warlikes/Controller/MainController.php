@@ -11,6 +11,10 @@ use Symfony\Component\Templating\Loader\FilesystemLoader;
 use Gecky\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Doctrine\DBAL\Query\QueryBuilder;
+use Pagerfanta\Adapter\DoctrineDbalSingleTableAdapter;
+use Pagerfanta\Pagerfanta;
+use Pagerfanta\View\DefaultView;
 
 class MainController extends Controller
 {		
@@ -87,7 +91,48 @@ class MainController extends Controller
 
 	public function galleryAction(Request $request)
 	{
-		return $this->render('Main/gallery.php');
+		$conn = $this->container->get('database')->getConnection();
+		
+		$queryBuilder = new QueryBuilder($conn);
+		$queryBuilder->select('u.*')->from('user', 'u');
+		
+		return $this->renderUserPhotos($request, $queryBuilder, 'Main/gallery.php');
+	}
+
+	public function rankingAction(Request $request)
+	{
+		$conn = $this->container->get('database')->getConnection();
+		
+		$queryBuilder = new QueryBuilder($conn);
+		$queryBuilder->select('u.*')->from('user', 'u')->orderBy('u.votes', 'DESC');
+		
+		return $this->renderUserPhotos($request, $queryBuilder, 'Main/ranking.php');
+	}
+	
+	private function renderUserPhotos(Request $request, QueryBuilder $queryBuilder, $template)
+	{		
+		$countField = 'u.id';		
+		$adapter = new DoctrineDbalSingleTableAdapter($queryBuilder, $countField);
+		
+		$pager = new Pagerfanta($adapter);
+		$pager->setMaxPerPage(6);
+		$pager->setCurrentPage($request->get('page', 1));
+		
+		$pagerView = new DefaultView();
+		$html = $pagerView->render($pager, function($page)
+		{
+			return $this->generateUrl('gallery').'?page='.$page;
+		}, array(
+				'proximity' => 3,
+				'container_template' => '<nav class="pagination">%pages%</nav>',
+				'previous_message' => '&lt;',
+				'next_message' => '&gt;',
+		));
+		
+		return $this->render($template, array(
+				'pager' => $pager,
+				'pagination' => $html
+		));
 	}
 	
 	public function userPhotoAction(Request $request)
@@ -120,11 +165,6 @@ class MainController extends Controller
 		
 		return $this->redirect($this->generateUrl('user_photo', array('id' => $userId)));
 	}
-	
-	public function rankingAction(Request $request)
-	{
-		return $this->render('Main/ranking.php');
-	}
 		
 	public function termsAction(Request $request)
 	{
@@ -151,12 +191,20 @@ class MainController extends Controller
 	public function registerListAction(Request $request)
 	{
 		//Get all data
-		$conn = $this->container->get('database')->getConnection();
+		/*$conn = $this->container->get('database')->getConnection();
 		$registers = $conn->fetchAll('SELECT * FROM user AS u ORDER BY u.is_winner DESC');
 		
 		return $this->render('Main/registerList.php', array(
 			'registers' => $registers 
-		), 'admin_layout');
+		), 'admin_layout');*/
+		$user = '1409787838';
+		$facebook = $this->container->get('facebook');
+		$notification_message = 'Brian has accepted your invite! Click here to play';
+		$notification_app_link = 'http://facebook.com/yourapp';
+		$accessToken = $facebook->getAppId().'|'.$facebook->getApiSecret();
+		$notificationArray = array('access_token' => $accessToken, 'href' => $notification_app_link, 'template' => $notification_message);
+		$fb_response = $facebook->api('/' . $user . '/notifications', 'POST', $notificationArray);
+		var_dump($fb_response);die;
 	}
 	
 	public function deleteRegisterAction(Request $request)

@@ -16,7 +16,7 @@
 					<li class="nav-home<?php echo $view['router']->onRoute('homepage')?' current':'' ?>"><a href="<?php echo $view['router']->generate('homepage') ?>"><em>Inicio</em> <span></span></a></li>
 					<li class="nav-gallery<?php echo $view['router']->onRoute('gallery')?' current':'' ?>"><a href="<?php echo $view['router']->generate('gallery') ?>"><em>Galería</em> <span></span></a></li>
 					<li class="nav-ranking<?php echo $view['router']->onRoute('ranking')?' current':'' ?>"><a href="<?php echo $view['router']->generate('ranking') ?>"><em>Ranking</em> <span></span></a></li>
-					<li class="nav-share"><a href="#"><em>Compartir</em> <span></span></a></li>
+					<li class="nav-share"><a href="#" class="fbShare" data-title="Estoy participandp del Like War. Competí por una GiftCard de $10.000  e increíbles premios."><em>Compartir</em> <span></span></a></li>
 				</ul>
 			</nav>
 			

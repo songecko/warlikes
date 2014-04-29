@@ -16,7 +16,7 @@ $(document).ready(function()
 	$.getScript('//connect.facebook.net/es_LA/all.js', function()
 	{
 		FB.init({
-			appId:  '738588072842792',
+			appId:  '551213981665418',
 	        status: true,
 	        xfbml:  true
 	    });
@@ -30,8 +30,8 @@ $(document).ready(function()
 		FB.ui({
 			method: 'feed',
 			link: ''+self.location,
-			name: 'Recomendador de Looks de URB',
-			caption: 'Acabo de utilizar el Recomendador de Looks de URB. Ingresa para ver cual es el tuyo.',
+			name: 'Guerra de Likes de Easy',
+			caption: $(this).data('title'),
 			description: ' ',
 		}, function(response){});
 	});
