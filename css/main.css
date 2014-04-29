@@ -1,5 +1,6 @@
 @import url("reset.css");
 
+html, body { overflow: hidden; }
 body {
 	font-family: 'Roboto', Helvetica, Arial, sans-serif;
 	font-size: 16px;
@@ -442,6 +443,7 @@ a {
 .photo {
 	position: relative;
 	width: 700px;
+	height: 500px;
 	margin: 0 auto;
 	box-shadow: 3px 3px 5px rgba(0,0,0,.15);
 	-moz-box-shadow: 3px 3px 5px rgba(0,0,0,.15);
@@ -450,7 +452,7 @@ a {
 .photo .big-thumb {
 	display: block;
 	width: 700px;
-	height: auto;
+	height: 500px;
 }
 .photo .actions {
 	position: absolute;

@@ -30,7 +30,8 @@ class AppListener implements EventSubscriberInterface
     	$signedRequest = $facebook->getSignedRequest();
     	
     	//If is on desktop but not on facebook tab
-    	if (!$mobileDetect->isMobile() 
+    	if ($this->isOnRoute(array('homepage'))
+    		&& !$mobileDetect->isMobile() 
 			&& (!isset($_SERVER['HTTP_REFERER']) || (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] == null)
 			|| $this->request->get('code')))
     	{
@@ -50,7 +51,7 @@ class AppListener implements EventSubscriberInterface
     	}
 
     	//Exception routes
-    	if($this->isOnRoute('terms') || $this->isOnRoute('gallery') || $this->isOnRoute('ranking') || $this->isOnRoute('gallery_photo'))
+    	if($this->isOnRoute('terms') || $this->isOnRoute('gallery') || $this->isOnRoute('ranking') || $this->isOnRoute('user_photo') || $this->isOnRoute('imagine_resize'))
     		return;
 		
     	//If logged in on facebook
@@ -85,11 +86,20 @@ class AppListener implements EventSubscriberInterface
     		$event->setResponse($this->redirect($this->generateUrl($routeName)));
     }
     
-    protected function isOnRoute($routeName)
+    protected function isOnRoute($routes)
     {
-    	$parameters = $this->container->get('matcher')->match($this->request->getPathInfo());
+    	//TODO: Refactorizacion (crear un Matcher)
+    	if(!is_array($routes))
+    		$routes = array($routes);
+
+    	$onRoute = false;
+    	foreach ($routes as $routeName)
+    	{
+    		$parameters = $this->container->get('matcher')->match($this->request->getPathInfo());
+    		$onRoute = ($parameters['_route'] == $routeName)?true:$onRoute;
+    	}
     	
-    	return $parameters['_route'] == $routeName;
+    	return $onRoute;
     }
     
     protected function redirect($url)

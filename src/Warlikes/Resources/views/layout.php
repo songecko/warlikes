@@ -2,6 +2,7 @@
 <html lang="es-ES">
 	<head>
 		<meta charset="UTF-8" />
+		<meta property="og:image" content="<?php echo $view['assets']->getUrl('images/fbTab.jpg') ?>" />
 		<title>Guerra de Likes</title>
 		<!--[if lt IE 9]>
 		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -11,6 +12,7 @@
 	</head>
 	<body>
 		<div id="page">
+			<?php if(!$view['router']->onRoute(array('like'))): ?>
 			<nav id="nav">
 				<ul>
 					<li class="nav-home<?php echo $view['router']->onRoute('homepage')?' current':'' ?>"><a href="<?php echo $view['router']->generate('homepage') ?>"><em>Inicio</em> <span></span></a></li>
@@ -19,6 +21,7 @@
 					<li class="nav-share"><a href="#" class="fbShare" data-title="Estoy participandp del Like War. Competí por una GiftCard de $10.000  e increíbles premios."><em>Compartir</em> <span></span></a></li>
 				</ul>
 			</nav>
+			<?php endif; ?>
 			
     		<?php echo $content ?>
     		    		

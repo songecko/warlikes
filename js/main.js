@@ -21,7 +21,7 @@ $(document).ready(function()
 	        xfbml:  true
 	    });
 		
-		FB.Canvas.setSize({ width: 810, height: 850 });
+		FB.Canvas.setSize({ width: 810, height: $('body').height() });
 	});
 		
 	$(".fbShare").click(function (e) 
