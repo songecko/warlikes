@@ -440,9 +440,14 @@ a {
 	background-image: url(../images/share.png);
 }
 
+#photo > .clearfix {
+	text-align: center;	
+}
+
 .photo {
+	display: inline-block;
 	position: relative;
-	width: 700px;
+	width: auto;
 	height: 500px;
 	margin: 0 auto;
 	box-shadow: 3px 3px 5px rgba(0,0,0,.15);
@@ -450,8 +455,8 @@ a {
 	-webkit-box-shadow: 3px 3px 5px rgba(0,0,0,.15);
 }
 .photo .big-thumb {
-	display: block;
-	width: 700px;
+	display: inline-block;
+	width: auto;
 	height: 500px;
 }
 .photo .actions {

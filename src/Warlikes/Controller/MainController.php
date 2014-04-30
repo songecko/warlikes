@@ -94,7 +94,7 @@ class MainController extends Controller
 		$conn = $this->container->get('database')->getConnection();
 		
 		$queryBuilder = new QueryBuilder($conn);
-		$queryBuilder->select('u.*')->from('user', 'u');
+		$queryBuilder->select('u.*')->from('user', 'u')->orderBy('id', 'DESC');
 		
 		return $this->renderUserPhotos($request, $queryBuilder, 'Main/gallery.php');
 	}
@@ -104,7 +104,7 @@ class MainController extends Controller
 		$conn = $this->container->get('database')->getConnection();
 		
 		$queryBuilder = new QueryBuilder($conn);
-		$queryBuilder->select('u.*')->from('user', 'u')->orderBy('u.votes', 'DESC');
+		$queryBuilder->select('u.*')->from('user', 'u')->orderBy('u.votes', 'ASC');
 		
 		return $this->renderUserPhotos($request, $queryBuilder, 'Main/ranking.php');
 	}
