@@ -38,7 +38,7 @@
 				<a href="<?php echo $view['router']->generate('terms') ?>" class="button">Bases y condiciones</a>
 				<p>Si sos uno de los ganadores y tenés tarjeta CENCOSUD, te llevás una giftcard extra de <strong>$3.000!!!</strong></p>
 				<div class="logos clearfix">
-					<a href="https://www.facebook.com/CencosudArg?ref=ts&fref=ts" target="_blank" id="cencosud">CENCOSUD</a>
+					<a href="https://www.facebook.com/TarjetaCencosudArgentina?fref=ts" target="_blank" id="cencosud">CENCOSUD</a>
 					<span id="easy">Easy</span>
 				</div>
 			</footer>
