@@ -2,7 +2,7 @@
 <html lang="es-ES">
 	<head>
 		<meta charset="UTF-8" />
-		<meta property="og:image" content="<?php echo $view['assets']->getUrl('images/fbTab.jpg') ?>" />
+		<meta property="og:image" content="https://secure-server.com.ar/<?php echo $view['assets']->getUrl('images/fbBrand.png') ?>" />
 		<title>Guerra de Likes</title>
 		<!--[if lt IE 9]>
 		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -38,7 +38,7 @@
 				<a href="<?php echo $view['router']->generate('terms') ?>" class="button">Bases y condiciones</a>
 				<p>Si sos uno de los ganadores y tenés tarjeta CENCOSUD, te llevás una giftcard extra de <strong>$3.000!!!</strong></p>
 				<div class="logos clearfix">
-					<a href="#" id="cencosud">CENCOSUD</a>
+					<a href="https://www.facebook.com/CencosudArg?ref=ts&fref=ts" target="_blank" id="cencosud">CENCOSUD</a>
 					<span id="easy">Easy</span>
 				</div>
 			</footer>

@@ -127,7 +127,7 @@ a {
 #footer p {
 	float: left;
 	display: inline;
-	width: 330px;
+	width: 300px;
 	margin: 33px 0 0 25px;
 	color: #fff;
 	font-size: 11px;
@@ -438,6 +438,37 @@ a {
 	text-indent: -9999em;
 	background-color: #b7141e;
 	background-image: url(../images/share.png);
+}
+
+.actions2 {
+	height: 50px;
+}
+.actions2 li {
+	float: left;
+	display: inline;
+}
+.actions2 li a {
+	display: block;
+	width: 50px;
+	height: 50px;
+	line-height: 24px;
+	color: #fff;
+	font-size: 18px;
+	background-color: #d62631;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.actions2 li.dislike a {
+	width: auto;
+	background-image: url(../images/dislike2.png);
+	background-position: 5px center;
+	padding: 0 5px 0 20px;
+}
+.actions2 li.share a {
+	text-indent: -9999em;
+	background-color: #b7141e;
+	background-image: url(../images/share2.png);
 }
 
 #photo > .clearfix {

@@ -20,11 +20,32 @@ class MainController extends Controller
 {		
 	public function indexAction(Request $request)
 	{
-		$facebook = $this->container->get('facebook');		
+		$facebook = $this->container->get('facebook');
+		$database = $this->container->get('database');
+		
 		$loginUrl = $facebook->getConfiguredLoginUrl();
+		$target = "_top";
+		
+		//If logged in on facebook
+    		if($fbId = $facebook->getUser())
+    		{
+			$conn = $database->getConnection();
+    			$user = $conn->fetchArray('SELECT * FROM user WHERE fbid = ?', array($fbId));
+			
+			//If user is registered
+    			if(!$user)
+    			{	
+				$loginUrl = $this->generateUrl('register');
+				$target = "_self";
+			}else
+			{
+				$loginUrl = null;
+			}
+		}
 		
 		return $this->render('Main/index.php', array(
-			'loginUrl' => $loginUrl
+			'loginUrl' => $loginUrl,
+			'target' => $target
 		));
 	}
 	

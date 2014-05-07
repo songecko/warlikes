@@ -1,6 +1,7 @@
 <header id="header"></header>
 
 <div class="page" id="photo">
+	<a href="<?php echo $view['router']->generate('gallery') ?>" style="color: #d42430; font-size: 14px; margin: 0 0 12px 0;display: block;">&lt; Volver</a>
 	<header class="section-header">
 		<h2>Se el menos votado y ganá!</h2>
 		<p>Completá tus datos y subí tu foto de #entrecasa, Bombardeá con LIKES las fotos de los demás y sumá más chances de ganar. ¡Empezá a participar!</p>
