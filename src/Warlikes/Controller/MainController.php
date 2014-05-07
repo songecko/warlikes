@@ -140,9 +140,10 @@ class MainController extends Controller
 		$pager->setCurrentPage($request->get('page', 1));
 		
 		$pagerView = new DefaultView();
+		$galleryRoute = $this->generateUrl('gallery');
 		$html = $pagerView->render($pager, function($page)
 		{
-			return $this->generateUrl('gallery').'?page='.$page;
+			return '?page='.$page;
 		}, array(
 				'proximity' => 3,
 				'container_template' => '<nav class="pagination">%pages%</nav>',
