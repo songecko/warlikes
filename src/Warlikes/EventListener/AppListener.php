@@ -51,7 +51,7 @@ class AppListener implements EventSubscriberInterface
     	}
 
     	//Exception routes
-    	if($this->isOnRoute('terms') || $this->isOnRoute('gallery') || $this->isOnRoute('ranking') || $this->isOnRoute('user_photo') || $this->isOnRoute('user_photo_vote') || $this->isOnRoute('imagine_resize'))
+    	if($this->isOnRoute('terms') || $this->isOnRoute('gallery') || $this->isOnRoute('ranking') || $this->isOnRoute('user_photo')  || $this->isOnRoute('imagine_resize'))
     		return;
 		
     	//If logged in on facebook

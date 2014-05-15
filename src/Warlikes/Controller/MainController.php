@@ -171,21 +171,57 @@ class MainController extends Controller
 	
 	public function userPhotoVoteAction(Request $request)
 	{
-		$userId = $request->get('id');
-		$sessionVotedName = 'user_'.$userId.'_photo_voted';
+		$userPhotoId = $request->get('id');
+		//$sessionVotedName = 'user_'.$userId.'_photo_voted';
 		
-		if(!$request->getSession()->get($sessionVotedName))
-		{
+		/*if(!$request->getSession()->get($sessionVotedName))
+		{*/
+			$facebook = $this->container->get('facebook');
+			$fbId = $facebook->getUser();
+			
 			$conn = $this->container->get('database')->getConnection();
-			$user = $conn->fetchAssoc("SELECT * FROM user WHERE id = ?", array($userId));
-			if($user)
+			
+			$user = $conn->fetchAssoc("SELECT * FROM user WHERE fbid = ?", array($fbId));
+			$userPhoto = $conn->fetchAssoc("SELECT * FROM user WHERE id = ?", array($userPhotoId));
+			
+			//Check if the user not voted to this photo
+			if($user && $userPhoto)
 			{
-				$conn->update('user', array('votes' => $user['votes']+1), array('id' => $userId));
-				$request->getSession()->set($sessionVotedName, true);
+				$vote = $conn->fetchAssoc("SELECT * FROM user_vote WHERE user_id = ? AND voted_user_id = ?", array($user['id'], $userPhotoId));
+				
+				if(!$vote)
+				{
+					$conn->update('user', array('votes' => $userPhoto['votes']+1), array('id' => $userPhotoId));
+					$conn->insert('user_vote', array(
+						'user_id' => $user['id'], 
+						'voted_user_id' => $userPhotoId,
+						'ip' => $this->get_client_ip()
+					));
+				}
+				//$request->getSession()->set($sessionVotedName, true);
 			}
-		}
+		//}
 		
-		return $this->redirect($this->generateUrl('user_photo', array('id' => $userId)));
+		return $this->redirect($this->generateUrl('user_photo', array('id' => $userPhotoId)));
+	}
+	
+	private function get_client_ip() {
+		$ipaddress = '';
+		if ($_SERVER['HTTP_CLIENT_IP'])
+			$ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+		else if($_SERVER['HTTP_X_FORWARDED_FOR'])
+			$ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		else if($_SERVER['HTTP_X_FORWARDED'])
+			$ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+		else if($_SERVER['HTTP_FORWARDED_FOR'])
+			$ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+		else if($_SERVER['HTTP_FORWARDED'])
+			$ipaddress = $_SERVER['HTTP_FORWARDED'];
+		else if($_SERVER['REMOTE_ADDR'])
+			$ipaddress = $_SERVER['REMOTE_ADDR'];
+		else
+			$ipaddress = 'UNKNOWN';
+		return $ipaddress;
 	}
 		
 	public function termsAction(Request $request)

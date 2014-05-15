@@ -43,14 +43,14 @@ class DatabaseCreateTablesCommand extends Command
     	$userTable->addUniqueIndex(array("email"));
     	
     	//user_look table
-    	/*$userLookTable = $schema->createTable("user_look");
-    	$userLookTable->addColumn("id", "integer", array("unsigned" => true, "autoincrement" => true));
-    	$userLookTable->addColumn("user_id", "integer", array("unsigned" => true));
-    	$userLookTable->addColumn("image", "string", array("length" => 255));
-    	$userLookTable->addColumn("color", "string", array("length" => 255, 'notnull' => false));
-    	$userLookTable->setPrimaryKey(array("id"));
-    	$userLookTable->addForeignKeyConstraint($userTable, array("user_id"), array("id"), array("onDelete" => "CASCADE"));
-    	*/
+    	$userVoteTable = $schema->createTable("user_vote");
+    	$userVoteTable->addColumn("id", "integer", array("unsigned" => true, "autoincrement" => true));
+    	$userVoteTable->addColumn("user_id", "integer", array("unsigned" => true));
+    	$userVoteTable->addColumn("voted_user_id", "integer", array("unsigned" => true));
+    	$userVoteTable->addColumn("ip", "string", array("length" => 255));
+    	$userVoteTable->setPrimaryKey(array("id"));
+    	$userVoteTable->addForeignKeyConstraint($userTable, array("user_id"), array("id"), array("onDelete" => "CASCADE"));
+    	
     	$queries = $schema->toSql($platform); // get queries to create this schema.
     	foreach ($queries as $query)
     	{
